@@ -3,6 +3,8 @@
 Site e painel de gestão da Igreja Matriz Santo Antônio de Pádua.
 
 Projeto de Extensão · Programação Web I · Sistemas de Informação · UNIDAVI
+Prof. Sandro Alencar Fernandes
+Equipe: João Vergilio, Guilherme Losi e Kayke Souza
 
 ## O que o sistema faz
 
