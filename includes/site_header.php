@@ -20,11 +20,19 @@ $links = [
     <title><?= e($titulo ?? 'Início') ?> · <?= e(cfg('paroquia_nome')) ?></title>
     <meta name="description" content="<?= e(cfg('paroquia_nome') . ' - ' . cfg('cidade')) ?>: horários de missa, agenda, movimentos, dízimo e transparência.">
     <link rel="stylesheet" href="assets/css/style.css">
+    <?= favicon() ?>
 </head>
 <body class="site">
+<div class="faixa-topo">
+    <div class="container faixa-linha">
+        <span><?= e(cfg('diocese')) ?></span>
+        <span>Secretaria: <?= e(cfg('telefone')) ?><span class="esconde-celular"> · <?= e(cfg('secretaria_horario')) ?></span></span>
+    </div>
+</div>
 <header class="site-topo">
     <div class="container topo-linha">
         <a class="marca" href="index.php">
+            <span class="marca-simbolo"><?= cruz() ?></span>
             <span class="marca-texto"><strong><?= e(cfg('paroquia_nome')) ?></strong><small><?= e(cfg('cidade')) ?></small></span>
         </a>
         <button class="menu-toggle" aria-label="Abrir menu" data-toggle-menu>☰</button>

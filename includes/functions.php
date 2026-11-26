@@ -36,6 +36,40 @@ function agora(): string
     return date('Y-m-d H:i:s');
 }
 
+// ---------- Símbolos ----------
+// Cruz latina usada na marca da paróquia
+function cruz(string $classe = 'marca-cruz'): string
+{
+    return '<svg class="' . e($classe) . '" viewBox="0 0 20 28" aria-hidden="true"><path d="M8 0h4v7h7v4h-7v17H8V11H1V7h7z" fill="currentColor"/></svg>';
+}
+
+// Ícones de traço simples (uma cor) para o menu do painel
+function icone(string $nome): string
+{
+    $p = [
+        'inicio' => '<path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',
+        'relogio' => '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+        'calendario' => '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+        'cruz' => '<path d="M12 3v18M7 8h10"/>',
+        'estrela' => '<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/>',
+        'grupo' => '<circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 5.5a3 3 0 0 1 0 5.5M18 14.5c1.8.8 3 2.8 3 5.5"/>',
+        'ficha' => '<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 10h6M9 14h6M9 18h3"/>',
+        'coracao' => '<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/>',
+        'carteira' => '<rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18M16 15h2"/>',
+        'grafico' => '<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',
+        'engrenagem' => '<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/>',
+        'pessoa' => '<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/>',
+    ][$nome] ?? '';
+    return '<svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' . $p . '</svg>';
+}
+
+// Ícone da aba do navegador (cruz)
+function favicon(): string
+{
+    $svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#5c3a21"/><path d="M14 5h4v7h7v4h-7v11h-4V16H7v-4h7z" fill="#f3e6cf"/></svg>';
+    return '<link rel="icon" href="data:image/svg+xml,' . rawurlencode($svg) . '">';
+}
+
 // ---------- Dados da paróquia (editáveis no painel) ----------
 function cfg(string $chave): string
 {

@@ -107,7 +107,16 @@ a.indicador:hover { border-color: var(--primaria); }
 .chip.ativo { background: var(--primaria); border-color: var(--primaria); color: #fff; }
 
 /* Marca */
-.marca { color: var(--texto); text-decoration: none; }
+.marca { color: var(--texto); text-decoration: none; display: inline-flex; align-items: center; gap: .75rem; }
+.marca-simbolo { display: inline-grid; place-items: center; width: 2.6rem; height: 2.6rem; flex-shrink: 0; background: var(--primaria); color: #f3e6cf; border-radius: 4px; }
+.marca-cruz { width: 14px; height: 20px; display: block; }
+.faixa-topo { background: var(--primaria-escura); color: #e9dccb; font-size: .8rem; }
+.faixa-linha { display: flex; justify-content: space-between; gap: 1rem; padding: .35rem 0; }
+.rodape-marca { display: inline-flex; align-items: center; gap: .5rem; }
+.rodape-cruz { width: 11px; height: 16px; color: #d9b77a; }
+.icone { width: 18px; height: 18px; flex-shrink: 0; color: var(--suave); }
+.menu-item { display: inline-flex; align-items: center; gap: .65rem; }
+.menu-lateral a.ativo .icone { color: var(--primaria); }
 .marca-texto { display: flex; flex-direction: column; line-height: 1.2; }
 .marca-texto strong { font-family: var(--serif); font-weight: normal; font-size: 1.2rem; }
 .marca-texto small { color: var(--suave); font-size: .8rem; }
@@ -266,7 +275,10 @@ a.indicador:hover { border-color: var(--primaria); }
 
 /* Painel */
 .painel-topo { display: flex; align-items: center; gap: 1rem; padding: .7rem 1.25rem; background: var(--primaria-escura); color: #fff; position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; }
-.painel-topo .marca { color: #fff; font-weight: 600; }
+.painel-topo .marca { color: #fff; font-weight: 600; gap: .6rem; }
+.painel-topo .marca-simbolo { width: 2rem; height: 2rem; background: #f3e6cf; color: var(--primaria-escura); }
+.painel-topo .marca-cruz { width: 11px; height: 16px; }
+.login-cartao .marca-simbolo { width: 2.2rem; height: 2.2rem; }
 .painel-topo .menu-toggle { border-color: rgba(255,255,255,.35); }
 .usuario-info { margin-left: auto; display: flex; gap: 1rem; align-items: center; font-size: .9rem; }
 .usuario-info span { opacity: .75; }
@@ -294,7 +306,7 @@ a.indicador:hover { border-color: var(--primaria); }
 
 .tela-login { min-height: 100vh; display: grid; place-items: center; padding: 16px; }
 .login-cartao { width: min(380px, 100%); }
-.login-cartao .marca { display: block; font-family: var(--serif); font-size: 1.25rem; margin-bottom: .4rem; }
+.login-cartao .marca { display: flex; font-family: var(--serif); font-size: 1.25rem; margin-bottom: .6rem; }
 
 /* Responsivo */
 @media (max-width: 1100px) {
@@ -326,6 +338,8 @@ a.indicador:hover { border-color: var(--primaria); }
     .barra-trilho { grid-column: 1 / -1; grid-row: 2; }
     .hero { padding: 2rem 0; }
     .marca-texto small { display: none; }
+    .esconde-celular { display: none; }
+    .painel-topo .marca-nome { display: none; }
 }
 @media (max-width: 520px) {
     .grade-semana { grid-template-columns: 1fr; }

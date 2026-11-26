@@ -21,10 +21,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Entrar · Painel da Paróquia</title>
     <link rel="stylesheet" href="../assets/css/style.css">
+    <?= favicon() ?>
 </head>
 <body class="tela-login">
 <form method="post" class="cartao login-cartao">
-    <a class="marca" href="../index.php"><?= e(cfg('paroquia_nome')) ?></a>
+    <a class="marca" href="../index.php"><span class="marca-simbolo"><?= cruz() ?></span> <?= e(cfg('paroquia_nome')) ?></a>
     <p class="suave">Painel da secretaria. Entre com seu e-mail e senha.</p>
     <?php if ($erro): ?><div class="alerta alerta-erro"><?= e($erro) ?></div><?php endif; ?>
     <?= csrf_field() ?>

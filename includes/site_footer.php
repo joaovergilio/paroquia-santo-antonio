@@ -2,7 +2,7 @@
 <footer class="site-rodape">
     <div class="container rodape-grade">
         <div>
-            <strong><?= e(cfg('paroquia_nome')) ?></strong>
+            <strong class="rodape-marca"><?= cruz('rodape-cruz') ?> <?= e(cfg('paroquia_nome')) ?></strong>
             <p><?= e(cfg('igreja_nome')) ?><br><?= e(cfg('diocese')) ?></p>
         </div>
         <div>
