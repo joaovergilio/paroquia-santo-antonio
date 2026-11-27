@@ -28,6 +28,8 @@ Equipe: João Vergilio, Guilherme Losi e Kayke Souza
 
 ## Como rodar (XAMPP)
 
+Passo a passo completo, com os links do documento e do slide: [COMO-ABRIR.md](COMO-ABRIR.md).
+
 1. Clone dentro do htdocs: `cd C:\xampp\htdocs` e `git clone https://github.com/joaovergilio/paroquia-santo-antonio.git`
 2. Inicie **Apache** e **MySQL** no painel do XAMPP.
 3. No phpMyAdmin (`http://localhost/phpmyadmin`), vá em **Importar** e envie `database/schema.sql`.
