@@ -28,12 +28,16 @@ Equipe: João Vergilio, Guilherme Losi e Kayke Souza
 
 ## Como rodar (XAMPP)
 
-1. A pasta deve ficar em `C:\xampp\htdocs\paroquia-santo-antonio`.
+1. Clone dentro do htdocs: `cd C:\xampp\htdocs` e `git clone https://github.com/joaovergilio/paroquia-santo-antonio.git`
 2. Inicie **Apache** e **MySQL** no painel do XAMPP.
 3. No phpMyAdmin (`http://localhost/phpmyadmin`), vá em **Importar** e envie `database/schema.sql`.
 4. Acesse `http://localhost/paroquia-santo-antonio/`.
 
 **Login inicial:** `admin@paroquia.org.br` / `admin123` (troque em Usuários no primeiro acesso).
+
+**Apache não inicia ou `localhost` dá 404?** Outro programa está usando a porta 80 (no Windows, costuma ser o IIS ou o Skype).
+Em `C:\xampp\apache\conf\httpd.conf`, troque `Listen 80` por `Listen 8080` e `ServerName localhost:80` por `ServerName localhost:8080`,
+reinicie o Apache e acesse `http://localhost:8080/paroquia-santo-antonio/`. O sistema funciona em qualquer porta.
 
 ## Antes de publicar
 
