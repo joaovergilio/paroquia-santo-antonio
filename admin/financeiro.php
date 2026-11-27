@@ -91,7 +91,7 @@ require __DIR__ . '/../includes/admin_header.php';
 ?>
 <div class="ajuda"><div>
     <p>Registre aqui todo dinheiro que <b>entra</b> (dízimos, ofertas, doações, festas) e que <b>sai</b> (contas, obras, ação social). Anexe o comprovante quando tiver.</p>
-    <p>No fim do mês, vá em <a href="fechamento.php">Publicar transparência</a> para mostrar os totais no site.</p>
+    <p>No fim do mês, vá em <a href="fechamento.php">Fechamento do mês</a> para mostrar os totais no site.</p>
 </div></div>
 
 <form class="filtros" method="get">

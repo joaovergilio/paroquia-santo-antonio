@@ -30,7 +30,6 @@ crud([
         'dia_semana' => 'Dia',
         'hora' => 'Hora',
         'tipo' => 'Tipo',
-        'local' => 'Local',
         'celebrante_id' => 'Celebrante',
         'ativo' => 'Ativo',
     ],

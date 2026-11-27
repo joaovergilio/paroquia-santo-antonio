@@ -34,10 +34,14 @@ for ($i = 1; $i <= 12; $i++) {
             FROM lancamento WHERE data BETWEEN ? AND ?", [date('Y-m-01', $ts), date('Y-m-t', $ts)])->fetch();
     $pub = q('SELECT f.*, u.nome AS usuario FROM fechamento_mensal f JOIN usuario u ON u.id = f.usuario_id WHERE mes = ? AND ano = ?',
         [(int)date('n', $ts), (int)date('Y', $ts)])->fetch();
-    $meses[] = ['mes' => (int)date('n', $ts), 'ano' => (int)date('Y', $ts), 'totais' => $t, 'publicacao' => $pub];
+    // Mostra o mês passado sempre; os anteriores só se tiverem lançamentos ou já estiverem publicados
+    if ($i > 1 && !$pub && (int)$t['qtd'] === 0) {
+        continue;
+    }
+    $meses[] =['mes' => (int)date('n', $ts), 'ano' => (int)date('Y', $ts), 'totais' => $t, 'publicacao' => $pub];
 }
 
-$titulo = 'Publicar transparência';
+$titulo = 'Fechamento do mês';
 require __DIR__ . '/../includes/admin_header.php';
 ?>
 <div class="ajuda"><div>

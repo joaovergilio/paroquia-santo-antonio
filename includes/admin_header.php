@@ -18,7 +18,7 @@ $menu = [
     ],
     'Finanças' => [
         ['financeiro.php', 'Entradas e saídas', ACESSO_FINANCEIRO, 'carteira'],
-        ['fechamento.php', 'Publicar transparência', ACESSO_FINANCEIRO, 'grafico'],
+        ['fechamento.php', 'Fechamento do mês', ACESSO_FINANCEIRO, 'grafico'],
     ],
     'Administração' => [
         ['configuracoes.php', 'Dados da paróquia', ACESSO_ADMIN, 'engrenagem'],
@@ -44,7 +44,7 @@ $selos = [
     <button class="menu-toggle" aria-label="Abrir menu" data-toggle-menu>☰</button>
     <a class="marca" href="index.php"><span class="marca-simbolo"><?= cruz() ?></span> <span class="marca-nome">Painel da Paróquia</span></a>
     <div class="usuario-info">
-        <span><?= e(usuario_atual()['nome'] ?? '') ?> · <?= e(PERFIS[usuario_atual()['perfil'] ?? ''] ?? '') ?></span>
+        <span title="<?= e(PERFIS[usuario_atual()['perfil'] ?? ''] ?? '') ?>"><?= e(usuario_atual()['nome'] ?? '') ?></span>
         <a href="../index.php" target="_blank">Ver site</a>
         <a href="logout.php">Sair</a>
     </div>

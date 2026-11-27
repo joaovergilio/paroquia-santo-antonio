@@ -7,7 +7,7 @@
         </div>
         <div>
             <strong>Endereço</strong>
-            <p><?= e(cfg('endereco')) ?><br><?= e(cfg('cidade')) ?></p>
+            <p><?php if (cfg('endereco')): ?><?= e(cfg('endereco')) ?><br><?php endif; ?><?= e(cfg('cidade')) ?></p>
         </div>
         <nav class="rodape-links" aria-label="Páginas do site">
             <strong>No site</strong>

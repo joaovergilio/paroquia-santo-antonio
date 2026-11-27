@@ -91,22 +91,18 @@ require __DIR__ . '/includes/site_header.php';
         </div>
         <div class="atalhos">
             <a class="atalho" href="clero.php">
-                <span class="atalho-num">I</span>
                 <strong>Nossos padres</strong>
                 <span>Quem serve a paróquia e quando cada padre celebra.</span>
             </a>
             <a class="atalho" href="santos.php">
-                <span class="atalho-num">II</span>
                 <strong>Santos</strong>
                 <span>A história, a festa e a oração de cada santo.</span>
             </a>
             <a class="atalho" href="biblia.php">
-                <span class="atalho-num">III</span>
                 <strong>Bíblia</strong>
                 <span>Os 73 livros, com busca por referência.</span>
             </a>
             <a class="atalho" href="transparencia.php">
-                <span class="atalho-num">IV</span>
                 <strong>Transparência</strong>
                 <span>Entradas e saídas publicadas todo mês.</span>
             </a>

@@ -19,12 +19,6 @@ $links = [
     <?= favicon() ?>
 </head>
 <body class="site">
-<div class="faixa-topo">
-    <div class="container faixa-linha">
-        <span><?= e(cfg('diocese')) ?></span>
-        <span>Secretaria: <?= e(cfg('telefone')) ?><span class="esconde-celular"> · <?= e(cfg('secretaria_horario')) ?></span></span>
-    </div>
-</div>
 <header class="site-topo">
     <div class="container topo-linha">
         <a class="marca" href="index.php">

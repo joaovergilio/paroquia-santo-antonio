@@ -328,3 +328,32 @@ INSERT INTO movimento (nome, publico, descricao, encontros, coordenador, aceita_
 ('Legião de Maria', 'Adultos', 'Grupo de oração mariana que realiza visitas a doentes, famílias e pessoas afastadas da Igreja.', 'Reuniões semanais', 'A definir', 1, 1, 8, NOW()),
 ('Pastoral da Criança', 'Gestantes e famílias com crianças até 6 anos', 'Acompanha o desenvolvimento das crianças e orienta as famílias sobre saúde, nutrição e educação, com apoio de voluntários.', 'Celebração da Vida mensal', 'A definir', 1, 1, 9, NOW()),
 ('Ministros Extraordinários da Comunhão', 'Adultos indicados pela comunidade', 'Ajudam na distribuição da comunhão nas missas e a levam aos doentes e idosos em suas casas.', 'Formação conforme orientação do pároco', 'A definir', 0, 1, 10, NOW());
+
+-- Finanças de exemplo: os dois meses anteriores à importação, já publicados na transparência
+INSERT INTO lancamento (tipo, categoria, valor, descricao, data, usuario_id, criado_em) VALUES
+('receita', 'Dízimo', 9840.00, 'Dízimos do mês', DATE_FORMAT(CURDATE() - INTERVAL 2 MONTH, '%Y-%m-28'), 1, NOW()),
+('receita', 'Ofertas das missas', 4215.50, 'Ofertas das missas do mês', DATE_FORMAT(CURDATE() - INTERVAL 2 MONTH, '%Y-%m-28'), 1, NOW()),
+('receita', 'Intenções de missa', 860.00, 'Intenções de missa', DATE_FORMAT(CURDATE() - INTERVAL 2 MONTH, '%Y-%m-20'), 1, NOW()),
+('receita', 'Taxas de sacramentos', 640.00, 'Batizados e casamentos', DATE_FORMAT(CURDATE() - INTERVAL 2 MONTH, '%Y-%m-15'), 1, NOW()),
+('despesa', 'Água, luz e telefone', 1380.40, 'Contas de água, luz e internet', DATE_FORMAT(CURDATE() - INTERVAL 2 MONTH, '%Y-%m-10'), 1, NOW()),
+('despesa', 'Salários e encargos', 5120.00, 'Secretária e zelador', DATE_FORMAT(CURDATE() - INTERVAL 2 MONTH, '%Y-%m-05'), 1, NOW()),
+('despesa', 'Contribuição à Diocese', 1550.00, 'Contribuição mensal à Diocese de Rio do Sul', DATE_FORMAT(CURDATE() - INTERVAL 2 MONTH, '%Y-%m-10'), 1, NOW()),
+('despesa', 'Manutenção e obras', 2300.00, 'Pintura do salão paroquial', DATE_FORMAT(CURDATE() - INTERVAL 2 MONTH, '%Y-%m-18'), 1, NOW()),
+('despesa', 'Ação social', 980.00, 'Cestas básicas', DATE_FORMAT(CURDATE() - INTERVAL 2 MONTH, '%Y-%m-22'), 1, NOW()),
+('receita', 'Dízimo', 10230.00, 'Dízimos do mês', DATE_FORMAT(CURDATE() - INTERVAL 1 MONTH, '%Y-%m-28'), 1, NOW()),
+('receita', 'Ofertas das missas', 4480.00, 'Ofertas das missas do mês', DATE_FORMAT(CURDATE() - INTERVAL 1 MONTH, '%Y-%m-28'), 1, NOW()),
+('receita', 'Festas e eventos', 6120.00, 'Festa de Nossa Senhora Aparecida', DATE_FORMAT(CURDATE() - INTERVAL 1 MONTH, '%Y-%m-13'), 1, NOW()),
+('receita', 'Intenções de missa', 920.00, 'Intenções de missa', DATE_FORMAT(CURDATE() - INTERVAL 1 MONTH, '%Y-%m-20'), 1, NOW()),
+('despesa', 'Água, luz e telefone', 1412.75, 'Contas de água, luz e internet', DATE_FORMAT(CURDATE() - INTERVAL 1 MONTH, '%Y-%m-10'), 1, NOW()),
+('despesa', 'Salários e encargos', 5120.00, 'Secretária e zelador', DATE_FORMAT(CURDATE() - INTERVAL 1 MONTH, '%Y-%m-05'), 1, NOW()),
+('despesa', 'Contribuição à Diocese', 1640.00, 'Contribuição mensal à Diocese de Rio do Sul', DATE_FORMAT(CURDATE() - INTERVAL 1 MONTH, '%Y-%m-10'), 1, NOW()),
+('despesa', 'Eventos', 2870.00, 'Compras para a festa de Nossa Senhora Aparecida', DATE_FORMAT(CURDATE() - INTERVAL 1 MONTH, '%Y-%m-08'), 1, NOW()),
+('despesa', 'Material litúrgico', 640.00, 'Hóstias, velas e vinho', DATE_FORMAT(CURDATE() - INTERVAL 1 MONTH, '%Y-%m-14'), 1, NOW()),
+('despesa', 'Ação social', 1150.00, 'Cestas básicas', DATE_FORMAT(CURDATE() - INTERVAL 1 MONTH, '%Y-%m-22'), 1, NOW());
+
+INSERT INTO fechamento_mensal (mes, ano, total_receitas, total_despesas, usuario_id, publicado_em)
+SELECT MONTH(data), YEAR(data),
+       SUM(CASE WHEN tipo = 'receita' THEN valor ELSE 0 END),
+       SUM(CASE WHEN tipo = 'despesa' THEN valor ELSE 0 END),
+       1, NOW()
+FROM lancamento GROUP BY YEAR(data), MONTH(data);

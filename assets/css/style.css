@@ -130,9 +130,7 @@ a.indicador:hover { border-color: var(--borda-forte); border-top-color: var(--pr
 .marca { color: var(--texto); text-decoration: none; display: inline-flex; align-items: center; gap: .8rem; }
 .marca-simbolo { display: inline-grid; place-items: center; width: 2.7rem; height: 2.7rem; flex-shrink: 0; background: var(--primaria); color: #ecd9b4; border-radius: 50%; box-shadow: inset 0 0 0 3px var(--primaria), inset 0 0 0 4px rgba(236, 217, 180, .55); }
 .marca-cruz { width: 14px; height: 20px; display: block; }
-.faixa-topo { background: var(--primaria-escura); color: #e2d2bb; font-size: .8rem; letter-spacing: .02em; }
-.faixa-linha { display: flex; justify-content: space-between; gap: 1rem; padding: .4rem 0; }
-.rodape-marca { display: flex; align-items: flex-start; gap: .55rem; font-family: var(--serif); font-size: 1.25rem; font-weight: 500; color: #f3e6d0; }
+.rodape-marca { display: flex; align-items: flex-start; gap: .55rem; font-family: var(--serif); font-size: 1.15rem; font-weight: 500; line-height: 1.25; color: #f3e6d0; }
 .rodape-cruz { width: 11px; height: 16px; flex-shrink: 0; margin-top: .3rem; color: var(--destaque); }
 .icone { width: 18px; height: 18px; flex-shrink: 0; color: var(--suave); }
 .menu-item { display: inline-flex; align-items: center; gap: .65rem; }
@@ -159,7 +157,7 @@ a.indicador:hover { border-color: var(--borda-forte); border-top-color: var(--pr
 .proximas-missas h2 { font-size: 1.35rem; text-align: center; padding-bottom: .7rem; margin-bottom: .2rem; border-bottom: 1px solid var(--borda-forte); }
 
 .lista-horarios { list-style: none; padding: 0; margin: 0 0 1rem; }
-.lista-horarios li { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: 1rem; padding: .7rem 0; border-bottom: 1px dotted var(--borda-forte); }
+.lista-horarios li { display: grid; grid-template-columns: 10.5rem minmax(0, 1fr); gap: 1rem; padding: .7rem 0; border-bottom: 1px dotted var(--borda-forte); }
 .lista-horarios li:last-child { border-bottom: 0; }
 .lista-horarios.compacta li { grid-template-columns: 7.5rem minmax(0, 1fr); }
 .lista-horarios small { display: block; }
@@ -186,10 +184,9 @@ a.indicador:hover { border-color: var(--borda-forte); border-top-color: var(--pr
 
 /* Atalhos da página inicial */
 .atalhos { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--borda-forte); background: var(--superficie); }
-.atalho { display: flex; flex-direction: column; gap: .3rem; padding: 1.4rem 1.4rem 1.5rem; border-right: 1px solid var(--borda); color: var(--texto); text-decoration: none; transition: background-color .15s; }
+.atalho { display: flex; flex-direction: column; gap: .35rem; padding: 1.3rem 1.4rem 1.4rem; border-top: 3px solid transparent; border-right: 1px solid var(--borda); color: var(--texto); text-decoration: none; transition: background-color .15s; }
 .atalho:last-child { border-right: 0; }
-.atalho:hover { background: var(--clara); }
-.atalho-num { font-family: var(--serif); font-size: .95rem; color: var(--destaque); letter-spacing: .1em; }
+.atalho:hover { background: var(--clara); border-top-color: var(--destaque); }
 .atalho strong { font-family: var(--serif); font-size: 1.45rem; font-weight: 500; color: var(--primaria-escura); }
 .atalho:hover strong { color: var(--primaria); }
 .atalho strong::after { content: " →"; font-size: .9em; opacity: 0; transition: opacity .15s; }
@@ -261,6 +258,9 @@ a.indicador:hover { border-color: var(--borda-forte); border-top-color: var(--pr
 .clero-foto img { width: 140px; height: 170px; border-radius: var(--raio); object-fit: cover; border: 1px solid var(--borda-forte); padding: 4px; background: #fff; }
 .clero-texto h2 { margin-bottom: .2rem; }
 .clero-agenda { border-left: 1px solid var(--borda); padding-left: 1.3rem; }
+.clero-agenda .lista-horarios li { grid-template-columns: 1fr; gap: .15rem; }
+.clero-agenda .lh-quando { display: flex; align-items: baseline; gap: .6rem; }
+.clero-agenda .lh-quando strong { font-size: 1.3rem; }
 .clero-agenda h3 { font-size: .76rem; letter-spacing: .1em; text-transform: uppercase; color: var(--suave); }
 
 /* Movimentos */
@@ -428,5 +428,4 @@ a.indicador:hover { border-color: var(--borda-forte); border-top-color: var(--pr
     .atalhos, .rodape-grade { grid-template-columns: 1fr; }
     .atalho { border-right: 0; border-bottom: 1px solid var(--borda); }
     .atalho:last-child { border-bottom: 0; }
-    .faixa-linha > span:first-child { display: none; }
 }

@@ -15,7 +15,7 @@ require __DIR__ . '/includes/site_header.php';
             <p class="suave">Nenhum sacerdote cadastrado.</p>
         <?php endif; ?>
         <?php foreach ($clero as $c): ?>
-            <?php $agendaPadre = proximos_horarios(5, null, (int)$c['id'], 14); ?>
+            <?php $agendaPadre = proximos_horarios(3, null, (int)$c['id'], 14); ?>
             <article class="cartao clero-card <?= $c['foto'] ? '' : 'sem-foto' ?>" id="padre-<?= $c['id'] ?>">
                 <?php if ($c['foto']): ?>
                     <div class="clero-foto"><img src="uploads/<?= e($c['foto']) ?>" alt="Foto de <?= e(nome_clero($c)) ?>"></div>
