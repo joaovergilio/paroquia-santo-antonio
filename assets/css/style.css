@@ -274,20 +274,38 @@ a.indicador:hover { border-color: var(--borda-forte); border-top-color: var(--pr
 .dados-compactos { display: grid; grid-template-columns: max-content 1fr; gap: .25rem .9rem; font-size: .88rem; margin: 0 0 1.1rem; padding-top: .7rem; border-top: 1px dotted var(--borda-forte); }
 .dados-compactos dt { color: var(--suave); }
 .dados-compactos dd { margin: 0; }
-.formulario-inscricao, .formulario-dizimista { max-width: 720px; margin: 2rem auto 0; border-top: 3px solid var(--primaria); }
+.formulario-inscricao { max-width: 720px; margin: 2rem auto 0; border-top: 3px solid var(--primaria); }
 
 /* Dízimo */
-.grade-dizimo { grid-template-columns: minmax(0, 1fr) 400px; }
-.forma-ajuda { margin-bottom: 1.3rem; padding-left: 1rem; border-left: 2px solid var(--borda-forte); }
-.forma-ajuda h3 { margin-bottom: .2rem; }
-.forma-ajuda p { margin: 0; }
-.seletor-finalidade { display: flex; flex-wrap: wrap; gap: .45rem; margin-bottom: 1rem; }
+.dizimo-grade { display: grid; grid-template-columns: minmax(0, 1fr) 420px; gap: 4rem; align-items: start; margin-top: .4rem; }
+.dizimo-texto .citacao { margin: .4rem 0 2.6rem; max-width: 30em; }
+.titulo-bloco { font-size: 1.4rem; padding-bottom: .5rem; margin-bottom: 0; border-bottom: 1px solid var(--borda-forte); }
+.formas { list-style: none; padding: 0; margin: 0; }
+.formas li { padding: 1.1rem 0; border-bottom: 1px dotted var(--borda-forte); }
+.formas li:last-child { border-bottom: 0; }
+.formas strong { display: block; font-size: 1rem; color: var(--primaria-escura); margin-bottom: .2rem; }
+.formas p { margin: 0; color: #4d4036; }
+.pix-cartao { margin: 0; padding: 1.6rem 1.7rem; border-top: 3px solid var(--primaria); position: sticky; top: 90px; }
+.pix-cartao h2 { font-size: 1.6rem; margin-bottom: 1rem; }
+.pix-cartao > p:last-child { margin-bottom: 0; }
+.pix-passo { font-size: .8rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--primaria-escura); margin: 1.3rem 0 .55rem; }
+.pix-cartao h2 + .pix-passo { margin-top: 0; }
+.pix-passo .suave { font-weight: 400; text-transform: none; letter-spacing: 0; }
+.pix-cartao [data-pix-valor] { margin: 0; }
+.seletor-finalidade { display: flex; flex-wrap: wrap; gap: .45rem; }
 .chip-radio { margin: 0; font-weight: 400; font-size: .86rem; padding: .28rem .8rem; border: 1px solid var(--borda-forte); border-radius: 999px; cursor: pointer; }
 .chip-radio:has(input:checked) { background: var(--primaria); color: #fbf3e6; border-color: var(--primaria); }
 .chip-radio input { display: none; }
-.valores-rapidos { display: flex; gap: .45rem; flex-wrap: wrap; margin: -.3rem 0 1rem; }
-.pix-qr { display: grid; place-items: center; min-height: 220px; margin-bottom: 1rem; padding: 1rem; background: #fff; border: 1px dashed var(--borda-forte); border-radius: var(--raio); }
-.pix-dados { margin-top: .8rem; word-break: break-all; }
+.valores-rapidos { display: flex; gap: .45rem; flex-wrap: wrap; margin-top: .6rem; }
+.pix-qr { display: grid; place-items: center; min-height: 220px; margin-bottom: 1.1rem; padding: 1rem; background: #fff; border: 1px dashed var(--borda-forte); border-radius: var(--raio); }
+.pix-qr:empty { display: none; }
+.botao-largo { width: 100%; padding-block: .65rem; }
+.pix-dados { margin: .9rem 0 0; font-size: .84rem; color: var(--suave); word-break: break-all; }
+.dizimista-grade { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 4rem; align-items: start; }
+.dizimista-grade > div:first-child { padding-top: .4rem; max-width: 26em; }
+.dizimista-grade h2 { font-size: 1.85rem; }
+.dizimista-grade .cartao { margin: 0; padding: 1.6rem 1.7rem; border-top: 3px solid var(--primaria); }
+.dizimista-grade .formulario .botao-cheio { margin-top: .9rem; }
 
 /* Bíblia */
 .biblia-controles { display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-end; }
@@ -391,7 +409,9 @@ a.indicador:hover { border-color: var(--borda-forte); border-top-color: var(--pr
     .site-menu .botao { margin-top: .7rem; }
 }
 @media (max-width: 900px) {
-    .grade-2, .grade-larga, .grade-dizimo, .hero-grade { grid-template-columns: 1fr; }
+    .grade-2, .grade-larga, .hero-grade, .dizimo-grade, .dizimista-grade { grid-template-columns: 1fr; }
+    .dizimo-grade, .dizimista-grade { gap: 2.4rem; }
+    .pix-cartao { position: static; }
     .hero-grade { gap: 2.4rem; }
     .grade-3 { grid-template-columns: 1fr; }
     .rodape-grade { grid-template-columns: 1fr 1fr; gap: 1.8rem; }
