@@ -15,10 +15,15 @@ require __DIR__ . '/includes/site_header.php';
 ?>
 <section class="hero">
     <div class="container hero-grade">
-        <div>
+        <div class="hero-abertura">
+            <p class="sobretitulo"><?= e(cfg('cidade')) ?> · <?= e(cfg('diocese')) ?></p>
             <h1><?= e(cfg('paroquia_nome')) ?></h1>
-            <p class="hero-texto"><?= e(cfg('igreja_nome')) ?>, <?= e(cfg('cidade')) ?>.</p>
+            <p class="ornamento" aria-hidden="true"><span><?= cruz('ornamento-cruz') ?></span></p>
             <p class="hero-texto"><?= e(cfg('boas_vindas')) ?></p>
+            <p class="hero-acoes">
+                <a class="botao botao-cheio" href="horarios.php">Horários de missa</a>
+                <a class="botao" href="movimentos.php">Participe de um movimento</a>
+            </p>
         </div>
         <div class="proximas-missas">
             <h2>Próximas missas</h2>
@@ -39,7 +44,7 @@ require __DIR__ . '/includes/site_header.php';
                     </li>
                 <?php endforeach; ?>
             </ul>
-            <a href="horarios.php">Todos os horários</a>
+            <a class="link-mais" href="horarios.php">Ver o quadro da semana</a>
         </div>
     </div>
 </section>
@@ -65,16 +70,47 @@ require __DIR__ . '/includes/site_header.php';
         <?php if ($santo): ?>
             <div>
                 <h2><?= $santoHoje ? 'Santo do dia' : 'Próxima festa, ' . (int)$santo['dia'] . ' de ' . mb_strtolower(nome_mes((int)$santo['mes'])) ?></h2>
-                <p><a href="santos.php?id=<?= $santo['id'] ?>"><strong><?= e($santo['nome']) ?></strong></a></p>
+                <p class="santo-nome"><a href="santos.php?id=<?= $santo['id'] ?>"><?= e($santo['nome']) ?></a></p>
                 <p><?= e($santo['resumo']) ?></p>
+                <a class="link-mais" href="santos.php?id=<?= $santo['id'] ?>">Ler a história</a>
             </div>
         <?php endif; ?>
         <?php if ($versiculo): ?>
             <div>
                 <h2>Palavra do dia</h2>
-                <blockquote class="citacao">“<?= e($versiculo['texto']) ?>” <cite><a href="<?= e($versiculo['link']) ?>"><?= e($versiculo['referencia']) ?></a></cite></blockquote>
+                <blockquote class="citacao"><?= e($versiculo['texto']) ?> <cite><a href="<?= e($versiculo['link']) ?>"><?= e($versiculo['referencia']) ?></a></cite></blockquote>
             </div>
         <?php endif; ?>
+    </div>
+</section>
+
+<section class="secao">
+    <div class="container">
+        <div class="cabecalho-secao">
+            <h2>Conheça a paróquia</h2>
+        </div>
+        <div class="atalhos">
+            <a class="atalho" href="clero.php">
+                <span class="atalho-num">I</span>
+                <strong>Nossos padres</strong>
+                <span>Quem serve a paróquia e quando cada padre celebra.</span>
+            </a>
+            <a class="atalho" href="santos.php">
+                <span class="atalho-num">II</span>
+                <strong>Santos</strong>
+                <span>A história, a festa e a oração de cada santo.</span>
+            </a>
+            <a class="atalho" href="biblia.php">
+                <span class="atalho-num">III</span>
+                <strong>Bíblia</strong>
+                <span>Os 73 livros, com busca por referência.</span>
+            </a>
+            <a class="atalho" href="transparencia.php">
+                <span class="atalho-num">IV</span>
+                <strong>Transparência</strong>
+                <span>Entradas e saídas publicadas todo mês.</span>
+            </a>
+        </div>
     </div>
 </section>
 <?php require __DIR__ . '/includes/site_footer.php'; ?>

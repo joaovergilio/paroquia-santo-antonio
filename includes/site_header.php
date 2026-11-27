@@ -1,15 +1,11 @@
 <?php
 // Cabeçalho do site público. Defina $titulo antes de incluir.
 $paginaAtual = basename($_SERVER['SCRIPT_NAME']);
+// Só o essencial no menu. Santos, padres, Bíblia e transparência ficam na página inicial e no rodapé.
 $links = [
-    'index.php' => 'Início',
     'horarios.php' => 'Horários',
     'agenda.php' => 'Agenda',
-    'santos.php' => 'Santos',
-    'clero.php' => 'Nossos padres',
     'movimentos.php' => 'Movimentos',
-    'biblia.php' => 'Bíblia',
-    'transparencia.php' => 'Transparência',
 ];
 ?>
 <!DOCTYPE html>
@@ -40,7 +36,7 @@ $links = [
             <?php foreach ($links as $arquivo => $rotulo): ?>
                 <a href="<?= $arquivo ?>" class="<?= $paginaAtual === $arquivo ? 'ativo' : '' ?>"><?= $rotulo ?></a>
             <?php endforeach; ?>
-            <a href="dizimo.php" class="botao botao-cheio botao-pequeno <?= $paginaAtual === 'dizimo.php' ? 'ativo' : '' ?>">Dízimo e doações</a>
+            <a href="dizimo.php" class="botao botao-cheio botao-pequeno <?= $paginaAtual === 'dizimo.php' ? 'ativo' : '' ?>">Dízimo</a>
         </nav>
     </div>
 </header>
